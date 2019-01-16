@@ -3,11 +3,308 @@
     <head>
         <title>ありがちでない歌詞生成に向けた曲調と歌詞の関係に基づくベクトル空間モデル</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <link href="css/app.css" rel="stylesheet">
     </head>
     <body>
-    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+        <div id="header">
+            <div id="paper_title">ありがちでない歌詞生成に向けた曲調と歌詞の関係に基づくベクトル空間モデル：デモページ</div>
+        </div>
+        <div id="info">
+            <div id="author"><u>○渡邉 研斗</u>，後藤 真孝</div>
+            <div id="affiliation">産業技術総合研究所（AIST）</div>
+            <div id="proc">言語処理学会 第25回年次大会（NLP2019）</div>
+        </div>
+        <div id="container">
+            <div class="table_title">表1　MM-VSMにおけつ対象の単語と類似度が大きい単語・楽曲．</div>
+            <div class="table">
+                <div class="table_top">
+                    入力ベクトル：v(sweet)
+                </div>
+                <div class="table_content">
+                    <div class="table_type">類似単語</div>
+                    <div class="table_item">
+                        <div class="word">lover</div><div class="score">0.88</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">love</div><div class="score">0.87</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">lips</div><div class="score">0.86</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">kisses</div><div class="score">0.86</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">blue</div><div class="score">0.85</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">little</div><div class="score">0.85</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">night</div><div class="score">0.84</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">sweeter</div><div class="score">0.84</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">beautiful</div><div class="score">0.83</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">lady</div><div class="score">0.83</div>
+                    </div>
+                </div>
+                <div class="table_content">
+                    <div class="table_type">類似楽曲</div>
+                    <div class="table_item2">
+                        <div class="title">Please</div>
+                        <div class="artist">Bing Crosby</div>
+                        <div class="genre">Traditional Pop</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/c4/43/87/mzm.byhurbwo.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.41</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">I Wonder</div>
+                        <div class="artist">Marvin Gaye</div>
+                        <div class="genre">R&B/Soul</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music3/v4/6a/94/c3/6a94c32f-f9c5-d2ff-caa8-aa610b11df14/mzaf_1596158098802677873.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.38</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">When a Woman Loves a Man</div>
+                        <div class="artist">Abbey Lincoln</div>
+                        <div class="genre">Jazz</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music2/v4/b1/32/e4/b132e43c-131b-6f98-c1f2-7c9ba5dc79c7/mzaf_1513663469475311196.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.38</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">The Lamp Is Low</div>
+                        <div class="artist">Doris Day</div>
+                        <div class="genre">Pop</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/85/24/b2/mzm.kvetoooz.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.38</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">The Prohibition</div>
+                        <div class="artist">Ketil Bjørnstad, Randi Stene & Lars Anders Tomter</div>
+                        <div class="genre">Vocal</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/v4/ee/dc/6f/eedc6f6d-60bd-29ea-85a3-199c9ab813c7/mzaf_290864740734737896.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.38</div>
+                    </div>
+                </div>
+            </div>
+            <div class="table">
+                <div class="table_top">
+                    入力ベクトル：v(kill)
+                </div>
+                <div class="table_content">
+                    <div class="table_type">類似単語</div>
+                    <div class="table_item">
+                        <div class="word">murder</div><div class="score">0.91</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">hate</div><div class="score">0.90</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">feed</div><div class="score">0.89</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">enemies</div><div class="score">0.89</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">crush</div><div class="score">0.88</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">brain</div><div class="score">0.88</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">fed</div><div class="score">0.88</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">attack</div><div class="score">0.88</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">strike</div><div class="score">0.87</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">cut</div><div class="score">0.87</div>
+                    </div>
+                </div>
+                <div class="table_content">
+                    <div class="table_type">類似楽曲</div>
+                    <div class="table_item2">
+                        <div class="title">Virunus</div>
+                        <div class="artist">Eluveitie</div>
+                        <div class="genre">デスメタル / ブラックメタル</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music4/v4/74/1f/25/741f2596-6a86-9f77-7662-b2160483aac5/mzaf_2034852366946239513.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.48</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">The One That Kills the Least</div>
+                        <div class="artist">Slipknot</div>
+                        <div class="genre">Metal</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music1/v4/6b/5b/ec/6b5bec7e-577d-696c-2362-dd20bd1faead/mzaf_8475884007237431730.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.47</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">Lost Symphonies</div>
+                        <div class="artist">Saosin</div>
+                        <div class="genre">ロック</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/5b/8e/43/mzm.ozfqsilq.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.47</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">Nuclear Torment</div>
+                        <div class="artist">Legion of the Damned</div>
+                        <div class="genre">ロック</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music7/v4/f2/38/4a/f2384a92-bbf6-3617-580a-09e4b8241322/mzaf_6315194884718657020.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.47</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">Lamnidae</div>
+                        <div class="artist">This Or The Apocalypse</div>
+                        <div class="genre">ロック</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/33/15/90/mzm.xybdwuoo.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.47</div>
+                    </div>
+                </div>
+            </div>
+            <div class="table">
+                <div class="table_top">
+                    入力ベクトル：v(family)
+                </div>
+                <div class="table_content">
+                    <div class="table_type">類似単語</div>
+                    <div class="table_item">
+                        <div class="word">young</div><div class="score">0.91</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">grown</div><div class="score">0.90</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">paid</div><div class="score">0.90</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">short</div><div class="score">0.90</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">house</div><div class="score">0.89</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">kid</div><div class="score">0.89</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">bought</div><div class="score">0.89</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">next</div><div class="score">0.88</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">rich</div><div class="score">0.88</div>
+                    </div>
+                    <div class="table_item">
+                        <div class="word">rather</div><div class="score">0.88</div>
+                    </div>
+                </div>
+                <div class="table_content">
+                    <div class="table_type">類似楽曲</div>
+                    <div class="table_item2">
+                        <div class="title">Freestyle</div>
+                        <div class="artist">Boo & Gotti</div>
+                        <div class="genre">ヒップホップ／ラップ</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/v4/e3/dd/0f/e3dd0fb9-ca4f-8cb7-daa4-ba7d6c20737a/mzaf_6147723819592634332.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.45</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">Memories</div>
+                        <div class="artist">Mac</div>
+                        <div class="genre">ヒップホップ／ラップ</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/b6/b8/21/b6b82194-c196-d3c9-58fb-cb655b0cca06/mzaf_7296824144569066483.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.45</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">Roll Off</div>
+                        <div class="artist">Petey Pablo</div>
+                        <div class="genre">Hip-Hop/Rap</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/56/c4/f6/mzm.mggfxlnw.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.44</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">Them Jeans</div>
+                        <div class="artist">Master P</div>
+                        <div class="genre">Hip-Hop/Rap</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music2/v4/29/cb/56/29cb5661-9f1c-14d4-3d6d-cb2a47f1386b/mzaf_5976978871002547747.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.44</div>
+                    </div>
+                    <div class="table_item2">
+                        <div class="title">Hustlers (Featuring Game & Marsha Ambrosius)</div>
+                        <div class="artist">Nas featuring Game</div>
+                        <div class="genre">ヒップホップ／ラップ</div>
+                        <div class="audio"><audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/v4/b0/70/6e/b0706ee0-07f8-d38c-8f66-0550713fce6b/mzaf_6921804110997591478.plus.aac.p.m4a" controls></audio></div>
+                        <div class="score2">0.44</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="container2">
+            <div class="table_title">表3　Hybrid-VSMを用いた歌詞生成の例．</div>
+            <div class="table2">
+                <div class="table2_top">
+                    <div class="title2">Amazing Grace</div>
+                    <div class="artist2">Susan Boyle</div>
+                    <div class="genre2">Pop</div>
+                </div>
+                <div class="audio2">
+                    <audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/f6/af/f1/mzi.cqzuaidl.aac.p.m4a" controls></audio>
+                </div>
+                <div class="gen_line">
+                    <div class="head_word">先頭単語：I</div>
+                    <div class="gen_lyrics">I'm not asking for mercy anymore.</div>
+                </div>
+                <div class="gen_line">
+                    <div class="head_word">先頭単語：The</div>
+                    <div class="gen_lyrics">The sun shines bright as snow.</div>
+                </div>
+            </div>
+            <div class="table2">
+                <div class="table2_top">
+                    <div class="title2">Killing Time</div>
+                    <div class="artist2">Necrodeath</div>
+                    <div class="genre2">Metal</div>
+                </div>
+                <div class="audio2">
+                    <audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music4/v4/f0/54/eb/f054eb51-d888-147a-70d1-52c5ba71670b/mzaf_1059187364531767702.plus.aac.p.m4a" controls></audio>
+                </div>
+                <div class="gen_line">
+                    <div class="head_word">先頭単語：I</div>
+                    <div class="gen_lyrics">I invoke the lord above thy god.</div>
+                </div>
+                <div class="gen_line">
+                    <div class="head_word">先頭単語：The</div>
+                    <div class="gen_lyrics">The stench of blood runs dry.</div>
+                </div>
+            </div>
+            <div class="table2">
+                <div class="table2_top">
+                    <div class="title2">Why I Love You</div>
+                    <div class="artist2">B2K</div>
+                    <div class="genre2">R&B/Soul</div>
+                </div>
+                <div class="audio2">
+                    <audio src="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/8d/ba/a1/mzm.ykwwybef.aac.p.m4a" controls></audio>
+                </div>
+                <div class="gen_line">
+                    <div class="head_word">先頭単語：I</div>
+                    <div class="gen_lyrics">I wanna be your lover lover.</div>
+                </div>
+                <div class="gen_line">
+                    <div class="head_word">先頭単語：The</div>
+                    <div class="gen_lyrics">The scent of jasmine brew.</div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>
 
